@@ -1,0 +1,7 @@
+logs/
+output/
+__pycache__/
+*.pyc
+data/
+*.pem
+config/
