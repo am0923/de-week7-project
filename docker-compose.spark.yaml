@@ -1,0 +1,32 @@
+services:
+  spark-master:
+    image: spark:python3
+    container_name: wk07-spark-master
+    command:
+      - /opt/spark/bin/spark-class
+      - org.apache.spark.deploy.master.Master
+      - --host
+      - spark-master
+      - --port
+      - "7077"
+      - --webui-port
+      - "8080"
+    ports:
+      - "7077:7077"
+      - "8081:8080"
+    volumes:
+      - ./jobs:/opt/spark/work-dir/jobs
+      - ../data:/opt/spark/work-dir/data:ro
+
+  spark-worker:
+    image: spark:python3
+    container_name: wk07-spark-worker
+    depends_on:
+      - spark-master
+    command:
+      - /opt/spark/bin/spark-class
+      - org.apache.spark.deploy.worker.Worker
+      - spark://spark-master:7077
+    volumes:
+      - ./jobs:/opt/spark/work-dir/jobs
+      - ../data:/opt/spark/work-dir/data:ro
