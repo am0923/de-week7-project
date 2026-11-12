@@ -5,8 +5,8 @@
 
 ## 실습 환경
 
-Docker, Airflow, Spark 기반 데이터 엔지니어링 실습 환경
+Docker, Airflow, Spark를 활용하여 데이터 파이프라인 실습 환경을 구성했습니다.
 
 ## 회고
 
-주차별 실습 내용을 기록합니다.
+Airflow와 Spark를 연동하면서 데이터 파이프라인 구성 과정을 익혔습니다.
